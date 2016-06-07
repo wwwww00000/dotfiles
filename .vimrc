@@ -1,6 +1,10 @@
 set nocompatible
 filetype off
 
+"For unix filesystems
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
 call vundle#begin('$HOME/vimfiles/bundle/')
 
@@ -23,7 +27,6 @@ Plugin 'mxw/vim-jsx'
 Plugin 'reedes/vim-pencil'
 
 call vundle#end()
-filetype plugin indent on
 filetype plugin on
 
 let mapleader = ' '
