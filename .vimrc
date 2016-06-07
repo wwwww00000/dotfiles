@@ -41,6 +41,16 @@ set incsearch
 set hlsearch
 nnoremap <silent><Cr> :noh<Cr>
 
+"For vim7.3 and below
+"function! NumberToggle()
+	"if(&relativenumber==1)
+		"set number
+	"else
+		"set relativenumber
+	"endif
+"endfunc
+"nnoremap <Leader>rn :call NumberToggle()<Cr>
+
 "nerdtree settings
 nmap <Leader>nt :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable="+"
