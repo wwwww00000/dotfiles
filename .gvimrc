@@ -1,3 +1,6 @@
+syntax on
+colorscheme slate
+
 " To enable the saving and restoring of screen positions.
 let g:screen_size_restore_pos=1
 let g:screen_size_by_vim_instance=0
