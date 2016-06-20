@@ -39,6 +39,9 @@ set foldmethod=indent
 set foldlevelstart=20
 nmap <Leader>fm :set foldmethod=manual<Cr> 
 
+let g:netrw_bufsettings="noma nomod nu nobl nowarp ro"
+let g:netrw_liststyle=3
+
 set relativenumber
 set number
 set incsearch
