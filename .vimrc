@@ -10,9 +10,9 @@ call vundle#begin('$HOME/vimfiles/bundle/')
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
-
 Plugin 'scrooloose/nerdcommenter'
+
+Plugin 'vim-airline/vim-airline'
 
 Plugin 'tpope/vim-surround'
 
@@ -37,6 +37,7 @@ autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
 set foldmethod=indent 
 set foldlevelstart=20
+nmap <Leader>fm :set foldmethod=manual<Cr> 
 
 set relativenumber
 set number
@@ -54,10 +55,8 @@ nnoremap <silent><Cr> :noh<Cr>
 "endfunc
 "nnoremap <Leader>rn :call NumberToggle()<Cr>
 
-"nerdtree settings
-nmap <Leader>nt :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
+"vim-airline settings
+let g:airline#extensions#tabline#enabled=1
 
 "LaTeX_Box settings
 let g:LatexBox_quickfix=2

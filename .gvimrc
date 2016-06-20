@@ -1,5 +1,8 @@
 syntax on
-colorscheme slate
+colorscheme pablo
+
+" Enables vim-airline status bar when editing single file.
+set laststatus=2
 
 " To enable the saving and restoring of screen positions.
 let g:screen_size_restore_pos=1
