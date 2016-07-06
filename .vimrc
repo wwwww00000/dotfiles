@@ -26,17 +26,21 @@ Plugin 'mxw/vim-jsx'
 
 Plugin 'reedes/vim-pencil'
 
+Plugin 'jeetsukumaran/vim-indentwise'
+
 call vundle#end()
 filetype plugin on
 
 let mapleader = ' '
 inoremap jk <Esc>
 
+set autoindent
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
 set foldmethod=indent 
 set foldlevelstart=20
+nmap <Leader>fi :set foldmethod=indent<Cr> 
 nmap <Leader>fm :set foldmethod=manual<Cr> 
 
 let g:netrw_bufsettings="noma nomod nu nobl nowarp ro"
@@ -47,6 +51,9 @@ set number
 set incsearch
 set hlsearch
 nnoremap <silent><Cr> :noh<Cr>
+
+"search for visually highlighted text
+vnoremap // y/<C-R>"<CR>
 
 "For vim7.3 and below
 "function! NumberToggle()
@@ -71,6 +78,6 @@ let g:LatexBox_close_pats=[]
 "vim-pencil settings
 nmap <Leader>pt :PencilToggle<CR>
 let g:pencil#warpModeDefault='soft'
-augroup pencil
-	autocmd!
-	autocmd Filetype markdown,mkd call pencil#init()
+"augroup pencil
+	"autocmd!
+	"autocmd Filetype markdown,mkd call pencil#init()
