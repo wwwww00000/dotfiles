@@ -1,6 +1,10 @@
 syntax on
 colorscheme pablo
 
+" Disable beeping
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
 " Enables vim-airline status bar when editing single file.
 set laststatus=2
 
