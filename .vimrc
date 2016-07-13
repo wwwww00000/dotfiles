@@ -38,10 +38,16 @@ set autoindent
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
 set foldmethod=indent 
 set foldlevelstart=20
 nmap <Leader>fi :set foldmethod=indent<Cr> 
 nmap <Leader>fm :set foldmethod=manual<Cr> 
+
+"insert newline without entering insert mode
+nnoremap <C-J> o<Esc>k
+nnoremap <C-K> O<Esc>j
 
 let g:netrw_bufsettings="noma nomod nu nobl nowarp ro"
 let g:netrw_liststyle=3
@@ -50,6 +56,8 @@ set relativenumber
 set number
 set incsearch
 set hlsearch
+
+"reset search with <Cr>
 nnoremap <silent><Cr> :noh<Cr>
 
 "search for visually highlighted text
