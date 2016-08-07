@@ -38,7 +38,7 @@ set autoindent
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
-au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
 
 set foldmethod=indent 
 set foldlevelstart=20
@@ -71,7 +71,12 @@ vnoremap // y/<C-R>"<CR>
 		"set relativenumber
 	"endif
 "endfunc
-"nnoremap <Leader>rn :call NumberToggle()<Cr>
+
+function! NumberToggle()
+	set relativenumber!
+endfunc
+
+nnoremap <Leader>rn :ckll NumberToggle()<Cr>
 
 "vim-airline settings
 let g:airline#extensions#tabline#enabled=1
