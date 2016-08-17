@@ -1,9 +1,9 @@
 set nocompatible
 filetype off
 
-"For unix filesystems
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
+" For unix filesystems
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
 call vundle#begin('$HOME/vimfiles/bundle/')
@@ -22,11 +22,11 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 Plugin 'pangloss/vim-javascript'
 
-Plugin 'mxw/vim-jsx'
-
 Plugin 'reedes/vim-pencil'
 
 Plugin 'jeetsukumaran/vim-indentwise'
+
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin on
@@ -45,7 +45,7 @@ set foldlevelstart=20
 nmap <Leader>fi :set foldmethod=indent<Cr> 
 nmap <Leader>fm :set foldmethod=manual<Cr> 
 
-"insert newline without entering insert mode
+" insert newline without entering insert mode
 nnoremap <C-J> o<Esc>k
 nnoremap <C-K> O<Esc>j
 
@@ -57,40 +57,43 @@ set number
 set incsearch
 set hlsearch
 
-"reset search with <Cr>
+" reset search with <Cr>
 nnoremap <silent><Cr> :noh<Cr>
 
-"search for visually highlighted text
+" search for visually highlighted text
 vnoremap // y/<C-R>"<CR>
 
-"For vim7.3 and below
-"function! NumberToggle()
-	"if(&relativenumber==1)
-		"set number
-	"else
-		"set relativenumber
-	"endif
-"endfunc
+" For vim7.3 and below
+" function! NumberToggle()
+	" if(&relativenumber==1)
+		" set number
+	" else
+		" set relativenumber
+	" endif
+" endfunc
 
 function! NumberToggle()
 	set relativenumber!
 endfunc
 
-nnoremap <Leader>rn :ckll NumberToggle()<Cr>
+nnoremap <Leader>rn :call NumberToggle()<Cr>
 
-"vim-airline settings
+" nerdcommenter settings
+let NERDSpaceDelims=1
+
+" vim-airline settings
 let g:airline#extensions#tabline#enabled=1
 
-"LaTeX_Box settings
+" LaTeX_Box settings
 let g:LatexBox_quickfix=2
 let g:LatexBox_viewer='SumatraPDF'
 let g:LatexBox_latexmk_preview_continuously=1
 let g:LatexBox_open_pats=[]
 let g:LatexBox_close_pats=[]
 
-"vim-pencil settings
+" vim-pencil settings
 nmap <Leader>pt :PencilToggle<CR>
 let g:pencil#warpModeDefault='soft'
-"augroup pencil
-	"autocmd!
-	"autocmd Filetype markdown,mkd call pencil#init()
+" augroup pencil
+	" autocmd!
+	" autocmd Filetype markdown,mkd call pencil#init()

@@ -1,12 +1,20 @@
 syntax on
-colorscheme pablo
 
-" Disable beeping
-set noerrorbells visualbell t_vb=
-autocmd GUIEnter * set visualbell t_vb=
+"gruvbox
+colorscheme gruvbox
+set background=dark
 
-" Enables vim-airline status bar when editing single file.
+" vim-airline settings
+set encoding=utf-8
 set laststatus=2
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h10
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " To enable the saving and restoring of screen positions.
 let g:screen_size_restore_pos=1
