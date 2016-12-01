@@ -28,11 +28,16 @@ Plugin 'jeetsukumaran/vim-indentwise'
 
 Plugin 'morhetz/gruvbox'
 
+Plugin 'tpope/vim-abolish'
+
 call vundle#end()
 filetype plugin on
 
 let mapleader = ' '
 inoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap jK <Esc>
+inoremap JK <Esc>
 
 set autoindent
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
@@ -49,6 +54,8 @@ nmap <Leader>fm :set foldmethod=manual<Cr>
 nnoremap <C-J> o<Esc>k
 nnoremap <C-K> O<Esc>j
 
+set backspace=indent,eol,start
+
 let g:netrw_bufsettings="noma nomod nu nobl nowarp ro"
 let g:netrw_liststyle=3
 
@@ -63,20 +70,16 @@ nnoremap <silent><Cr> :noh<Cr>
 " search for visually highlighted text
 vnoremap // y/<C-R>"<CR>
 
-" For vim7.3 and below
-" function! NumberToggle()
-	" if(&relativenumber==1)
-		" set number
-	" else
-		" set relativenumber
-	" endif
-" endfunc
 
 function! NumberToggle()
 	set relativenumber!
 endfunc
-
 nnoremap <Leader>rn :call NumberToggle()<Cr>
+
+" fast buffer switching
+nnoremap <Leader>b :bp<Cr>
+nnoremap <Leader>n :bn<Cr>
+nnoremap <Leader>l :ls<Cr>
 
 " nerdcommenter settings
 let NERDSpaceDelims=1
