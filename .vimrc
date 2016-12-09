@@ -40,7 +40,8 @@ inoremap jK <Esc>
 inoremap JK <Esc>
 
 set autoindent
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+set list
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
