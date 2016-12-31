@@ -1,5 +1,4 @@
 set nocompatible
-filetype off
 
 let mapleader = ' '
 inoremap jk <Esc>
