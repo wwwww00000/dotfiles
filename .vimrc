@@ -43,7 +43,7 @@ set autoindent
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
-au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 set foldmethod=indent 
 set foldlevelstart=20
@@ -75,13 +75,24 @@ function! NumberToggle()
 endfunc
 nnoremap <Leader>rn :call NumberToggle()<Cr>
 
-" fast buffer switching
-nnoremap <Leader>b :bp<Cr>
-nnoremap <Leader>n :bn<Cr>
-nnoremap <Leader>l :ls<Cr>
+" spacemacs style buffer switching
+nnoremap <Leader>bp :bp<Cr>
+nnoremap <Leader>bn :bn<Cr>
+nnoremap <Leader>bl :ls<Cr>
+nnoremap <Leader>bd :bd<Cr>
+
+" spacemacs window management
+nnoremap <Leader>wh :wincmd h<Cr>
+nnoremap <Leader>wj :wincmd j<Cr>
+nnoremap <Leader>wk :wincmd k<Cr>
+nnoremap <Leader>wl :wincmd l<Cr>
+nnoremap <Leader>wd :wincmd q<Cr>
+nnoremap <Leader>w= :wincmd =<Cr>
+nnoremap <Leader>w/ :vsplit<Cr>
+nnoremap <Leader>w- :split<Cr>
 
 " nerdcommenter settings
-let NERDSpaceDelims=1
+" let NERDSpaceDelims=1
 
 " vim-airline settings
 let g:airline#extensions#tabline#enabled=1

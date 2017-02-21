@@ -1,12 +1,19 @@
 syntax on
+set clipboard=unnamed
+
+"disable gui features
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 "gruvbox
 colorscheme gruvbox
 set background=dark
 
 " vim-airline settings
-set encoding=utf-8
 set laststatus=2
+set encoding=utf-8
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h10
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
