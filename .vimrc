@@ -20,8 +20,6 @@ Plugin 'tpope/vim-repeat'
 
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
-Plugin 'pangloss/vim-javascript'
-
 Plugin 'reedes/vim-pencil'
 
 Plugin 'jeetsukumaran/vim-indentwise'
@@ -30,8 +28,15 @@ Plugin 'morhetz/gruvbox'
 
 Plugin 'tpope/vim-abolish'
 
+Plugin 'Vimjas/vim-python-pep8-indent'
+
+" Plugin 'luisjure/csound'
+
+" Plugin 'kunstmusik/csound-repl'
+
 call vundle#end()
 filetype plugin on
+filetype plugin indent on
 
 let mapleader = ' '
 inoremap jk <Esc>
@@ -92,7 +97,7 @@ nnoremap <Leader>w/ :vsplit<Cr>
 nnoremap <Leader>w- :split<Cr>
 
 " nerdcommenter settings
-" let NERDSpaceDelims=1
+let NERDSpaceDelims=1
 
 " vim-airline settings
 let g:airline#extensions#tabline#enabled=1

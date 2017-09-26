@@ -42,7 +42,18 @@ function! NumberToggle()
 endfunc
 nnoremap <Leader>rn :call NumberToggle()<Cr>
 
-" fast buffer switching
-nnoremap <Leader>b :bp<Cr>
-nnoremap <Leader>n :bn<Cr>
-nnoremap <Leader>l :ls<Cr>
+" spacemacs style buffer switching
+nnoremap <Leader>bp :bp<Cr>
+nnoremap <Leader>bn :bn<Cr>
+nnoremap <Leader>bl :ls<Cr>
+nnoremap <Leader>bd :bd<Cr>
+
+" spacemacs window management
+nnoremap <Leader>wh :wincmd h<Cr>
+nnoremap <Leader>wj :wincmd j<Cr>
+nnoremap <Leader>wk :wincmd k<Cr>
+nnoremap <Leader>wl :wincmd l<Cr>
+nnoremap <Leader>wd :wincmd q<Cr>
+nnoremap <Leader>w= :wincmd =<Cr>
+nnoremap <Leader>w/ :vsplit<Cr>
+nnoremap <Leader>w- :split<Cr>
