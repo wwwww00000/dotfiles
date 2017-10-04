@@ -30,10 +30,6 @@ Plugin 'tpope/vim-abolish'
 
 Plugin 'Vimjas/vim-python-pep8-indent'
 
-" Plugin 'luisjure/csound'
-
-" Plugin 'kunstmusik/csound-repl'
-
 call vundle#end()
 filetype plugin on
 filetype plugin indent on
@@ -98,6 +94,8 @@ nnoremap <Leader>w- :split<Cr>
 
 " nerdcommenter settings
 let NERDSpaceDelims=1
+nnoremap <Leader>;; :call NERDComment('n', 'toggle')<Cr>
+vnoremap <Leader>;; :call NERDComment('x', 'toggle')<Cr>
 
 " vim-airline settings
 let g:airline#extensions#tabline#enabled=1
