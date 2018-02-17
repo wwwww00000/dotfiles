@@ -12,7 +12,7 @@ autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
 
-set foldmethod=indent 
+set foldmethod=indent
 set foldlevelstart=20
 nmap <Leader>fi :set foldmethod=indent<Cr> 
 nmap <Leader>fm :set foldmethod=manual<Cr> 
@@ -47,6 +47,18 @@ nnoremap <Leader>bp :bp<Cr>
 nnoremap <Leader>bn :bn<Cr>
 nnoremap <Leader>bl :ls<Cr>
 nnoremap <Leader>bd :bd<Cr>
+" close buffer without killing window
+nnoremap <Leader>bd :bp<bar>bd#<Cr>
+nnoremap <Leader>bl :ls<Cr>
+nnoremap <Leader>b1 :b1<Cr>
+nnoremap <Leader>b2 :b2<Cr>
+nnoremap <Leader>b3 :b3<Cr>
+nnoremap <Leader>b4 :b4<Cr>
+nnoremap <Leader>b5 :b5<Cr>
+nnoremap <Leader>b6 :b6<Cr>
+nnoremap <Leader>b7 :b7<Cr>
+nnoremap <Leader>b8 :b8<Cr>
+nnoremap <Leader>b9 :b9<Cr>
 
 " spacemacs window management
 nnoremap <Leader>wh :wincmd h<Cr>

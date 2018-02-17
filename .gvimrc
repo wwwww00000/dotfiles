@@ -1,6 +1,10 @@
 syntax on
 set clipboard=unnamed
 
+" highlight trailing whitespace
+set list
+set listchars=trail:·
+
 "disable gui features
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar

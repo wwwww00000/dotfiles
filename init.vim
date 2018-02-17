@@ -1,32 +1,14 @@
 set nocompatible
 filetype off
 
-" For unix filesystems
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-
-set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-call vundle#begin('$HOME/vimfiles/bundle/')
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdcommenter'
 
-Plugin 'vim-airline/vim-airline'
-
 Plugin 'tpope/vim-surround'
-
-Plugin 'tpope/vim-repeat'
-
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-
-Plugin 'reedes/vim-pencil'
-
-Plugin 'jeetsukumaran/vim-indentwise'
-
-Plugin 'morhetz/gruvbox'
-
-Plugin 'tpope/vim-abolish'
 
 Plugin 'Vimjas/vim-python-pep8-indent'
 
@@ -44,9 +26,9 @@ set autoindent
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
-au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
 
-set foldmethod=indent
+set foldmethod=indent 
 set foldlevelstart=20
 nmap <Leader>fi :set foldmethod=indent<Cr> 
 nmap <Leader>fm :set foldmethod=manual<Cr> 
@@ -104,23 +86,35 @@ nnoremap <Leader>w/ :vsplit<Cr>
 nnoremap <Leader>w- :split<Cr>
 
 " nerdcommenter settings
-let NERDSpaceDelims=1
 nnoremap <Leader>;; :call NERDComment('n', 'toggle')<Cr>
 vnoremap <Leader>; :call NERDComment('x', 'toggle')<Cr>
 
-" vim-airline settings
-let g:airline#extensions#tabline#enabled=1
+" neovim terminal mode
+tnoremap <Leader>bp <C-\><C-N>:bp<Cr>
+tnoremap <Leader>bn <C-\><C-N>:bn<Cr>
+tnoremap <Leader>bd <C-\><C-N>:bd<Cr>
+tnoremap <Leader>bd <C-\><C-N>:bp<bar>bd#<Cr>
+tnoremap <Leader>bl <C-\><C-N>:ls<Cr>
+tnoremap <Leader>b1 <C-\><C-N>:b1<Cr>
+tnoremap <Leader>b2 <C-\><C-N>:b2<Cr>
+tnoremap <Leader>b3 <C-\><C-N>:b3<Cr>
+tnoremap <Leader>b4 <C-\><C-N>:b4<Cr>
+tnoremap <Leader>b5 <C-\><C-N>:b5<Cr>
+tnoremap <Leader>b6 <C-\><C-N>:b6<Cr>
+tnoremap <Leader>b7 <C-\><C-N>:b7<Cr>
+tnoremap <Leader>b8 <C-\><C-N>:b8<Cr>
+tnoremap <Leader>b9 <C-\><C-N>:b9<Cr>
+tnoremap <Leader>wh <C-\><C-N>:wincmd h<Cr>
+tnoremap <Leader>wj <C-\><C-N>:wincmd j<Cr>
+tnoremap <Leader>wk <C-\><C-N>:wincmd k<Cr>
+tnoremap <Leader>wl <C-\><C-N>:wincmd l<Cr>
+tnoremap <Leader>wd <C-\><C-N>:wincmd q<Cr>
+tnoremap <Leader>w= <C-\><C-N>:wincmd =<Cr>
+tnoremap <Leader>w/ <C-\><C-N>:vsplit<Cr>
+tnoremap <Leader>w- <C-\><C-N>:split<Cr>
 
-" LaTeX_Box settings
-let g:LatexBox_quickfix=2
-let g:LatexBox_viewer='SumatraPDF'
-let g:LatexBox_latexmk_preview_continuously=1
-let g:LatexBox_open_pats=[]
-let g:LatexBox_close_pats=[]
+" fix weird bug with default colorscheme
+autocmd VimEnter * :colorscheme default
 
-" vim-pencil settings
-nmap <Leader>pt :PencilToggle<CR>
-let g:pencil#warpModeDefault='soft'
-" augroup pencil
-	" autocmd!
-	" autocmd Filetype markdown,mkd call pencil#init()
+" persists terminal buffer even when hidden
+set hidden
