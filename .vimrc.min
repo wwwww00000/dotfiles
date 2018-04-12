@@ -14,8 +14,8 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
 
 set foldmethod=indent
 set foldlevelstart=20
-nmap <Leader>fi :set foldmethod=indent<Cr> 
-nmap <Leader>fm :set foldmethod=manual<Cr> 
+nmap <Leader>fi :set foldmethod=indent<Cr>
+nmap <Leader>fm :set foldmethod=manual<Cr>
 
 " insert newline without entering insert mode
 nnoremap <C-J> o<Esc>k
@@ -38,7 +38,7 @@ nnoremap <silent><Cr> :noh<Cr>
 vnoremap // y/<C-R>"<CR>
 
 function! NumberToggle()
-	set relativenumber!
+    set relativenumber!
 endfunc
 nnoremap <Leader>rn :call NumberToggle()<Cr>
 
@@ -59,6 +59,8 @@ nnoremap <Leader>b6 :b6<Cr>
 nnoremap <Leader>b7 :b7<Cr>
 nnoremap <Leader>b8 :b8<Cr>
 nnoremap <Leader>b9 :b9<Cr>
+" switch buffers by name
+nnoremap <Leader>bb :b <C-d>
 
 " spacemacs window management
 nnoremap <Leader>wh :wincmd h<Cr>

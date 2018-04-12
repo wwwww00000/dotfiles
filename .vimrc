@@ -20,8 +20,6 @@ Plugin 'tpope/vim-repeat'
 
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
-Plugin 'reedes/vim-pencil'
-
 Plugin 'jeetsukumaran/vim-indentwise'
 
 Plugin 'morhetz/gruvbox'
@@ -48,8 +46,8 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 set foldmethod=indent
 set foldlevelstart=20
-nmap <Leader>fi :set foldmethod=indent<Cr> 
-nmap <Leader>fm :set foldmethod=manual<Cr> 
+nmap <Leader>fi :set foldmethod=indent<Cr>
+nmap <Leader>fm :set foldmethod=manual<Cr>
 
 " insert newline without entering insert mode
 nnoremap <C-J> o<Esc>k
@@ -92,6 +90,8 @@ nnoremap <Leader>b6 :b6<Cr>
 nnoremap <Leader>b7 :b7<Cr>
 nnoremap <Leader>b8 :b8<Cr>
 nnoremap <Leader>b9 :b9<Cr>
+" switch buffers by name
+nnoremap <Leader>bb :b <C-d>
 
 " spacemacs window management
 nnoremap <Leader>wh :wincmd h<Cr>
