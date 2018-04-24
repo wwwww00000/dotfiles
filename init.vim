@@ -10,6 +10,8 @@ Plugin 'scrooloose/nerdcommenter'
 
 Plugin 'tpope/vim-surround'
 
+Plugin 'tommcdo/vim-exchange'
+
 Plugin 'Vimjas/vim-python-pep8-indent'
 
 call vundle#end()
@@ -28,10 +30,10 @@ autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
 
-set foldmethod=indent 
+set foldmethod=indent
 set foldlevelstart=20
-nmap <Leader>fi :set foldmethod=indent<Cr> 
-nmap <Leader>fm :set foldmethod=manual<Cr> 
+nmap <Leader>fi :set foldmethod=indent<Cr>
+nmap <Leader>fm :set foldmethod=manual<Cr>
 
 " insert newline without entering insert mode
 nnoremap <C-J> o<Esc>k
@@ -48,13 +50,13 @@ set incsearch
 set hlsearch
 
 " reset search with <Cr>
-nnoremap <silent><Cr> :noh<Cr>
+nnoremap <silent><Cr> :noh<Cr><Cr>
 
 " search for visually highlighted text
 vnoremap // y/<C-R>"<CR>
 
 function! NumberToggle()
-	set relativenumber!
+    set relativenumber!
 endfunc
 nnoremap <Leader>rn :call NumberToggle()<Cr>
 
@@ -74,6 +76,8 @@ nnoremap <Leader>b6 :b6<Cr>
 nnoremap <Leader>b7 :b7<Cr>
 nnoremap <Leader>b8 :b8<Cr>
 nnoremap <Leader>b9 :b9<Cr>
+" switch buffers by name
+nnoremap <Leader>bb :b <C-d>
 
 " spacemacs window management
 nnoremap <Leader>wh :wincmd h<Cr>
@@ -118,3 +122,9 @@ autocmd VimEnter * :colorscheme default
 
 " persists terminal buffer even when hidden
 set hidden
+
+" vim-exchange maps
+nmap gx <Plug>(Exchange)
+xmap X <Plug>(Exchange)
+nmap gxc <Plug>(ExchangeClear)
+nmap gxx <Plug>(ExchangeLine)

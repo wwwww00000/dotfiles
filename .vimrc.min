@@ -32,7 +32,7 @@ set incsearch
 set hlsearch
 
 " reset search with <Cr>
-nnoremap <silent><Cr> :noh<Cr>
+nnoremap <silent><Cr> :noh<Cr><Cr>
 
 " search for visually highlighted text
 vnoremap // y/<C-R>"<CR>
@@ -40,7 +40,7 @@ vnoremap // y/<C-R>"<CR>
 function! NumberToggle()
     set relativenumber!
 endfunc
-nnoremap <Leader>rn :call NumberToggle()<Cr>
+nnoremap <Leader>rn :call NumberToggle()<Cr><Cr>
 
 " spacemacs style buffer switching
 nnoremap <Leader>bp :bp<Cr>

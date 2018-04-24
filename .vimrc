@@ -26,6 +26,8 @@ Plugin 'morhetz/gruvbox'
 
 Plugin 'tpope/vim-abolish'
 
+Plugin 'tommcdo/vim-exchange'
+
 Plugin 'Vimjas/vim-python-pep8-indent'
 
 call vundle#end()
@@ -64,13 +66,13 @@ set incsearch
 set hlsearch
 
 " reset search with <Cr>
-nnoremap <silent><Cr> :noh<Cr>
+nnoremap <silent><Cr> :noh<Cr><Cr>
 
 " search for visually highlighted text
 vnoremap // y/<C-R>"<CR>
 
 function! NumberToggle()
-	set relativenumber!
+    set relativenumber!
 endfunc
 nnoremap <Leader>rn :call NumberToggle()<Cr>
 
@@ -118,9 +120,8 @@ let g:LatexBox_latexmk_preview_continuously=1
 let g:LatexBox_open_pats=[]
 let g:LatexBox_close_pats=[]
 
-" vim-pencil settings
-nmap <Leader>pt :PencilToggle<CR>
-let g:pencil#warpModeDefault='soft'
-" augroup pencil
-	" autocmd!
-	" autocmd Filetype markdown,mkd call pencil#init()
+" vim-exchange maps
+nmap gx <Plug>(Exchange)
+xmap X <Plug>(Exchange)
+nmap gxc <Plug>(ExchangeClear)
+nmap gxx <Plug>(ExchangeLine)
