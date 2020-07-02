@@ -1,36 +1,32 @@
 set nocompatible
 filetype off
 
-" For unix filesystems
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-call vundle#begin('$HOME/vimfiles/bundle/')
+Plug 'scrooloose/nerdcommenter'
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'vim-airline/vim-airline'
 
-Plugin 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
 
-Plugin 'vim-airline/vim-airline'
+Plug 'tpope/vim-repeat'
 
-Plugin 'tpope/vim-surround'
+Plug 'LaTeX-Box-Team/LaTeX-Box'
 
-Plugin 'tpope/vim-repeat'
+Plug 'jeetsukumaran/vim-indentwise'
 
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'morhetz/gruvbox'
 
-Plugin 'jeetsukumaran/vim-indentwise'
+Plug 'tpope/vim-abolish'
 
-Plugin 'morhetz/gruvbox'
+Plug 'tommcdo/vim-exchange'
 
-Plugin 'tpope/vim-abolish'
+Plug 'Vimjas/vim-python-pep8-indent'
 
-Plugin 'tommcdo/vim-exchange'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'Vimjas/vim-python-pep8-indent'
+call plug#end()
 
-call vundle#end()
 filetype plugin on
 filetype plugin indent on
 
@@ -112,6 +108,7 @@ vnoremap <Leader>; :call NERDComment('x', 'toggle')<Cr>
 
 " vim-airline settings
 let g:airline#extensions#tabline#enabled=1
+set laststatus=2
 
 " LaTeX_Box settings
 let g:LatexBox_quickfix=2
@@ -125,3 +122,12 @@ nmap gx <Plug>(Exchange)
 xmap X <Plug>(Exchange)
 nmap gxc <Plug>(ExchangeClear)
 nmap gxx <Plug>(ExchangeLine)
+
+
+" highlight trailing whitespace
+set list
+set listchars=trail:·
+
+" gruvbox
+colorscheme gruvbox
+set background=dark
