@@ -46,6 +46,8 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 match ColorColumn "\%>99v.\+"
 
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
 set foldmethod=indent
 set foldlevelstart=20
 nmap <Leader>fi :set foldmethod=indent<Cr>
@@ -70,6 +72,14 @@ nnoremap <silent><Cr> :noh<Cr><Cr>
 
 " search for visually highlighted text
 vnoremap // y/<C-R>"<CR>
+
+function! NumberToggle()
+    set number!
+    set relativenumber!
+endfunc
+nnoremap <Leader>tn :call NumberToggle()<Cr>
+
+nnoremap <Leader>tp :set invpaste<Cr>
 
 " fast buffer switching
 nnoremap <Leader>bp :bp<Cr>
