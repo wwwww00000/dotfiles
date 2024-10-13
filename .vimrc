@@ -25,6 +25,11 @@ Plug 'Vimjas/vim-python-pep8-indent'
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'majutsushi/tagbar'
+
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 filetype plugin on
@@ -39,6 +44,7 @@ inoremap JK <Esc>
 set autoindent
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
+match ColorColumn "\%>99v.\+"
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
@@ -68,9 +74,12 @@ nnoremap <silent><Cr> :noh<Cr><Cr>
 vnoremap // y/<C-R>"<CR>
 
 function! NumberToggle()
+    set number!
     set relativenumber!
 endfunc
-nnoremap <Leader>rn :call NumberToggle()<Cr>
+nnoremap <Leader>tn :call NumberToggle()<Cr>
+
+nnoremap <Leader>tp :set invpaste<Cr>
 
 " fast buffer switching
 nnoremap <Leader>bp :bp<Cr>
@@ -89,7 +98,15 @@ nnoremap <Leader>b7 :b7<Cr>
 nnoremap <Leader>b8 :b8<Cr>
 nnoremap <Leader>b9 :b9<Cr>
 " switch buffers by name
-nnoremap <Leader>bb :b <C-d>
+" nnoremap <Leader>bb :b <C-d>
+
+" fzf maps
+nnoremap <Leader>bb :Buffers<Cr>
+nnoremap <Leader>ff :Files<Cr>
+nnoremap <Leader>fg :GFiles<Cr>
+nnoremap <Leader>rg :Rg<Cr>
+nnoremap <Leader>bl :Lines<Cr>
+nnoremap <Leader>bt :BTags<Cr>
 
 " spacemacs window management
 nnoremap <Leader>wh :wincmd h<Cr>
@@ -100,6 +117,10 @@ nnoremap <Leader>wd :wincmd q<Cr>
 nnoremap <Leader>w= :wincmd =<Cr>
 nnoremap <Leader>w/ :vsplit<Cr>
 nnoremap <Leader>w- :split<Cr>
+nnoremap <Leader>wH :wincmd H<Cr>
+nnoremap <Leader>wJ :wincmd J<Cr>
+nnoremap <Leader>wK :wincmd K<Cr>
+nnoremap <Leader>wL :wincmd L<Cr>
 
 " nerdcommenter settings
 let NERDSpaceDelims=1
@@ -123,7 +144,6 @@ xmap X <Plug>(Exchange)
 nmap gxc <Plug>(ExchangeClear)
 nmap gxx <Plug>(ExchangeLine)
 
-
 " highlight trailing whitespace
 set list
 set listchars=trail:·
@@ -131,3 +151,9 @@ set listchars=trail:·
 " gruvbox
 colorscheme gruvbox
 set background=dark
+
+" tabbar
+nnoremap <Leader>tt :TagbarToggle<CR>
+let g:tagbar_map_showproto="<Tab>" " don't interfere with leader
+let g:tagbar_show_linenumbers=-1
+let g:tagbar_sort=0

@@ -1,20 +1,44 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdcommenter'
 
-Plugin 'scrooloose/nerdcommenter'
+Plug 'vim-airline/vim-airline'
 
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
-Plugin 'tommcdo/vim-exchange'
+Plug 'tpope/vim-repeat'
 
-Plugin 'Vimjas/vim-python-pep8-indent'
+Plug 'jeetsukumaran/vim-indentwise'
 
-call vundle#end()
+Plug 'morhetz/gruvbox'
+
+Plug 'tpope/vim-abolish'
+
+Plug 'tommcdo/vim-exchange'
+
+Plug 'Vimjas/vim-python-pep8-indent'
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'Vimjas/vim-python-pep8-indent'
+
+Plug 'vim-python/python-syntax'
+
+Plug 'jupyter-vim/jupyter-vim'
+
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'embear/vim-localvimrc'
+
+call plug#end()
+
 filetype plugin on
 filetype plugin indent on
 
@@ -28,7 +52,7 @@ set autoindent
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
 
-au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 set foldmethod=indent
 set foldlevelstart=20
@@ -56,9 +80,12 @@ nnoremap <silent><Cr> :noh<Cr><Cr>
 vnoremap // y/<C-R>"<CR>
 
 function! NumberToggle()
+    set number!
     set relativenumber!
 endfunc
-nnoremap <Leader>rn :call NumberToggle()<Cr>
+nnoremap <Leader>tn :call NumberToggle()<Cr>
+
+nnoremap <Leader>tp :set invpaste<Cr>
 
 " fast buffer switching
 nnoremap <Leader>bp :bp<Cr>
@@ -77,7 +104,15 @@ nnoremap <Leader>b7 :b7<Cr>
 nnoremap <Leader>b8 :b8<Cr>
 nnoremap <Leader>b9 :b9<Cr>
 " switch buffers by name
-nnoremap <Leader>bb :b <C-d>
+" nnoremap <Leader>bb :b <C-d>
+
+" fzf maps
+nnoremap <Leader>bb :Buffers<Cr>
+nnoremap <Leader>ff :Files<Cr>
+nnoremap <Leader>fg :GFiles<Cr>
+nnoremap <Leader>rg :Rg<Cr>
+nnoremap <Leader>bl :Lines<Cr>
+nnoremap <Leader>bt :BTags<Cr>
 
 " spacemacs window management
 nnoremap <Leader>wh :wincmd h<Cr>
@@ -90,41 +125,42 @@ nnoremap <Leader>w/ :vsplit<Cr>
 nnoremap <Leader>w- :split<Cr>
 
 " nerdcommenter settings
+let NERDSpaceDelims=1
 nnoremap <Leader>;; :call NERDComment('n', 'toggle')<Cr>
 vnoremap <Leader>; :call NERDComment('x', 'toggle')<Cr>
 
-" neovim terminal mode
-tnoremap <Leader>bp <C-\><C-N>:bp<Cr>
-tnoremap <Leader>bn <C-\><C-N>:bn<Cr>
-tnoremap <Leader>bd <C-\><C-N>:bd<Cr>
-tnoremap <Leader>bd <C-\><C-N>:bp<bar>bd#<Cr>
-tnoremap <Leader>bl <C-\><C-N>:ls<Cr>
-tnoremap <Leader>b1 <C-\><C-N>:b1<Cr>
-tnoremap <Leader>b2 <C-\><C-N>:b2<Cr>
-tnoremap <Leader>b3 <C-\><C-N>:b3<Cr>
-tnoremap <Leader>b4 <C-\><C-N>:b4<Cr>
-tnoremap <Leader>b5 <C-\><C-N>:b5<Cr>
-tnoremap <Leader>b6 <C-\><C-N>:b6<Cr>
-tnoremap <Leader>b7 <C-\><C-N>:b7<Cr>
-tnoremap <Leader>b8 <C-\><C-N>:b8<Cr>
-tnoremap <Leader>b9 <C-\><C-N>:b9<Cr>
-tnoremap <Leader>wh <C-\><C-N>:wincmd h<Cr>
-tnoremap <Leader>wj <C-\><C-N>:wincmd j<Cr>
-tnoremap <Leader>wk <C-\><C-N>:wincmd k<Cr>
-tnoremap <Leader>wl <C-\><C-N>:wincmd l<Cr>
-tnoremap <Leader>wd <C-\><C-N>:wincmd q<Cr>
-tnoremap <Leader>w= <C-\><C-N>:wincmd =<Cr>
-tnoremap <Leader>w/ <C-\><C-N>:vsplit<Cr>
-tnoremap <Leader>w- <C-\><C-N>:split<Cr>
-
-" fix weird bug with default colorscheme
-autocmd VimEnter * :colorscheme default
-
-" persists terminal buffer even when hidden
-set hidden
+" vim-airline settings
+let g:airline#extensions#tabline#enabled=1
+set laststatus=2
 
 " vim-exchange maps
 nmap gx <Plug>(Exchange)
 xmap X <Plug>(Exchange)
 nmap gxc <Plug>(ExchangeClear)
 nmap gxx <Plug>(ExchangeLine)
+
+" highlight trailing whitespace
+set list
+set listchars=trail:·
+
+" gruvbox
+colorscheme gruvbox
+set background=dark
+
+" python-syntax
+let g:python_highlight_all=1
+
+" jupyter-vim
+let g:python3_host_prog = '/home/wenbin/.asdf/shims/python'
+let g:jupyter_mapkeys=0
+nnoremap <silent> <Leader>jC :JupyterConnect<Cr>
+nnoremap <silent> <Leader>jd :JupyterDisconnect<Cr>
+nnoremap <silent> <Leader>jf :JupyterRunFile<Cr>
+nnoremap <silent> <Leader>jc :JupyterSendCell<Cr>
+nnoremap <silent> <Leader>jj :JupyterSendRange<Cr>
+nmap     <silent> <Leader>je <Plug>JupyterRunTextObj
+vmap     <silent> <Leader>je <Plug>JupyterRunVisual
+
+" vim-localvimrc
+let g:localvimrc_persistent=2
+let g:localvimrc_sandbox=0

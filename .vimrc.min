@@ -9,8 +9,7 @@ inoremap JK <Esc>
 set autoindent
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 expandtab shiftwidth=2
-
-au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown | setlocal spell
+match ColorColumn "\%>99v.\+"
 
 set foldmethod=indent
 set foldlevelstart=20
@@ -37,12 +36,7 @@ nnoremap <silent><Cr> :noh<Cr><Cr>
 " search for visually highlighted text
 vnoremap // y/<C-R>"<CR>
 
-function! NumberToggle()
-    set relativenumber!
-endfunc
-nnoremap <Leader>rn :call NumberToggle()<Cr><Cr>
-
-" spacemacs style buffer switching
+" fast buffer switching
 nnoremap <Leader>bp :bp<Cr>
 nnoremap <Leader>bn :bn<Cr>
 nnoremap <Leader>bl :ls<Cr>
@@ -71,3 +65,7 @@ nnoremap <Leader>wd :wincmd q<Cr>
 nnoremap <Leader>w= :wincmd =<Cr>
 nnoremap <Leader>w/ :vsplit<Cr>
 nnoremap <Leader>w- :split<Cr>
+nnoremap <Leader>wH :wincmd H<Cr>
+nnoremap <Leader>wJ :wincmd J<Cr>
+nnoremap <Leader>wK :wincmd K<Cr>
+nnoremap <Leader>wL :wincmd L<Cr>
